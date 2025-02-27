@@ -26,22 +26,22 @@ public class MySqlCRUD {
     // Inserts a new customer record into the MySQL database.
     //  If the customer ID already exists, the insertion is skipped.
 
-    public void insertCustomer(Customer customer) {
-        if (customerExists(customer.getId())) {
-            System.out.println(" Customer with ID " + customer.getId() + " already exists. Skipping insert.");
+    public void insertCustomer(Customers customers) {
+        if (customerExists(customers.getId())) {
+            System.out.println(" Customer with ID " + customers.getId() + " already exists. Skipping insert.");
             return;
         }
 
         try (Connection connection = DriverManager.getConnection(JDBC_URL, USERNAME, PASSWORD)) {
             String sql = "INSERT INTO customers (id, first_name, last_name, age, email) VALUES (?, ?, ?, ?, ?)";
             try (PreparedStatement stmt = connection.prepareStatement(sql)) {
-                stmt.setInt(1, customer.getId());
-                stmt.setString(2, customer.getFirstName());
-                stmt.setString(3, customer.getLastName());
-                stmt.setInt(4, customer.getAge());
-                stmt.setString(5, customer.getEmail());
+                stmt.setInt(1, customers.getId());
+                stmt.setString(2, customers.getFirstName());
+                stmt.setString(3, customers.getLastName());
+                stmt.setInt(4, customers.getAge());
+                stmt.setString(5, customers.getEmail());
                 stmt.executeUpdate();
-                System.out.println(" Customer " + customer.getFirstName() + " inserted successfully.");
+                System.out.println(" Customers " + customers.getFirstName() + " inserted successfully.");
             }
         } catch (SQLException e) {
             e.printStackTrace();

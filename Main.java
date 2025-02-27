@@ -28,15 +28,15 @@ public class Main {
         mysqlCRUD.insertCustomer(customer5);
 
         System.out.println("\n===== MySQL READ Customers =====");
-        mysqlCRUD.readCustomers();
+        mysqlCRUD.readCustomer();
 
         System.out.println("\n===== MySQL UPDATE Customer =====");
-        mysqlCRUD.updateCustomer(2, " Ahmed");
-        mysqlCRUD.readCustomers();
+        mysqlCRUD.updateCustomer(2, "Ahmed");
+        mysqlCRUD.readCustomer();
 
         System.out.println("\n===== MySQL DELETE Customer =====");
         mysqlCRUD.deleteCustomer(3);
-        mysqlCRUD.readCustomers();
+        mysqlCRUD.readCustomer();
 
         // MongoDB CRUD Operations
         org.example.MongoCRUD mongoCRUD = new org.example.MongoCRUD();

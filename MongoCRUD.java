@@ -9,14 +9,16 @@
  */
 package org.example;
 
-import com.mongodb.client.MongoClient;
-import com.mongodb.client.MongoClients;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
-import org.bson.Document;
-import org.jetbrains.annotations.NotNull;
+//import com.mongodb.client.MongoClient;
+//import com.mongodb.client.MongoClients;
+//import com.mongodb.client.MongoCollection;
+//import com.mongodb.client.MongoDatabase;
+//import org.bson.Document;
+// import org.jetbrains.annotations.NotNull;
 
 //MongoCRUD class provides CRUD (Create, Read, Update, Delete) operations for managing customer data in a MongoDB database.
+
+import javax.swing.text.Document;
 
 public class MongoCRUD {
     private MongoClient mongoClient;
@@ -31,7 +33,7 @@ public class MongoCRUD {
     }
     // Inserts a new customer document into the MongoDB collection.
 
-    public void insertCustomer(Customer customer) {
+    public void insertCustomer(org.example.Customer customer) {
         Document newCustomer = new Document("id", customer.getId())
                 .append("first_name", customer.getFirstName())
                 .append("last_name", customer.getLastName())
